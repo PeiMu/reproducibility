@@ -12,7 +12,7 @@ sudo apt update
 if [ $# -eq 0 ];
 then
   declare -a packages=(
-    "openjdk-8-jre-headless" "openjdk-16-jre-headless" "postgresql-12" "software-properties-common" "unzip"
+    "openjdk-8-jre-headless" "openjdk-17-jre-headless" "postgresql-12" "software-properties-common" "unzip"
   )
 
   for package in "${packages[@]}"
@@ -52,12 +52,12 @@ sudo cgset -r cpu.cfs_quota_us=100000 limitcpu1
 sudo cgcreate -a "$USER" -t "$USER" -g cpu:/limitcpu8
 sudo cgset -r cpu.cfs_quota_us=800000 limitcpu8
 
-echo "Installing TeX Live"
-mkdir install-tl && cd install-tl
-wget -O - -- http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar xzf - --strip-components=1
-sudo apt install -y tex-common texinfo equivs perl-tk perl-doc
-sudo ./install-tl -profile ../texlive.profile
-cd ..
+#echo "Installing TeX Live"
+#mkdir install-tl && cd install-tl
+#wget -O - -- http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar xzf - --strip-components=1
+#sudo apt install -y tex-common texinfo equivs perl-tk perl-doc
+#sudo ./install-tl -profile ../texlive.profile
+#cd ..
 
 if [[ ! -d "${INSTALL_DIR}/ssb-dbgen" ]]; then
   echo "Downloading SSB DBGen..."
