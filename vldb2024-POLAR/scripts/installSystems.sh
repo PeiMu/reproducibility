@@ -39,7 +39,7 @@ fi
 
 if [[ ! -d "${INSTALL_DIR}/duckdb-polr" ]]; then
   echo "Downloading POLAR..."
-  git clone https://github.com/d-justen/duckdb-polr.git
+  git clone https://github.com/PeiMu/duckdb-polr
   cd duckdb-polr
   sed -i '22a #include <cstdint>' "/home/pei/Project/POLAR/reproducibility/vldb2024-POLAR/duckdb-polr/third_party/thrift/thrift/TApplicationException.h"
   BUILD_BENCHMARK=1 BUILD_TPCH=1 BUILD_HTTPFS=1 make
